@@ -27,12 +27,12 @@ export default function RootLayout({
                     fontSans.variable
                 )}
             >
-                <div className="flex flex-1 w-full dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex-col">
-                    <SmartFilter />
-                    <div className="mt-8">
-                        {children}
+                    <div className="flex flex-1 w-full dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex-col">
+                        <SmartFilter />
+                        <div className="mt-8">
+                            {children}
+                        </div>
                     </div>
-                </div>
             </body>
         </html>
     );

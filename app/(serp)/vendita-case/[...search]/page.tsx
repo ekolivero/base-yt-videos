@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import ListingCard from "./components/listing-card";
 import { LoadingListingCard } from "./components/loading-listing-card";
 import PaginationComponent from "./components/pagination";
+import HouseList from "./components/house-list";
 
 export type PropertyListing = {
     title: string;
@@ -129,16 +130,8 @@ async function ListingItems({ search, prezzoMinimo, prezzoMassimo, page }: {
     const pageRange = getPageRange(currentPage, totalPages);
 
     return (
-        <div className="flex flex-1 flex-col gap-8 mb-8">
-            <div className="px-2 gap-4 flex flex-col">
-            {propertyListing?.houses?.map((house) => (
-                <ListingCard key={house.title} house={house} />
-            ))}
-            <PaginationComponent pageRange={pageRange} currentPage={currentPage} totalPages={totalPages} />
-            </div>
-            
-        </div>
-    );
+        <HouseList propertyListing={propertyListing.houses} currentPage={currentPage} pageRange={pageRange} totalPages={totalPages} />
+    )
 }
 
 
@@ -151,7 +144,6 @@ export default async function Page({ params: { search }, searchParams: {
         <div className="flex px-2 md:max-w-xl md:mx-auto h-full">
             <Suspense fallback={<LoadingListingCard />} key={`${prezzoMinimo}-${prezzoMassimo}-${page}`}>
                 <ListingItems search={search} prezzoMinimo={prezzoMinimo} prezzoMassimo={prezzoMassimo} page={page}/>
-                
             </Suspense>
         </div>
     )

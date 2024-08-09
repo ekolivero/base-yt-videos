@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "pwm.im-cdn.it",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };
